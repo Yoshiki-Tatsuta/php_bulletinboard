@@ -67,10 +67,31 @@ $pdo = null;
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet/less" type="text/css" href="./style/style.less" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
     <title>ひと言掲示板 管理ページ</title>
 </head>
 <body>
-<h1><a href="./index.php">ひと言掲示板 管理ページ</a></h1>
+<div class="outer-menu">
+  <input class="checkbox-toggle" type="checkbox" />
+  <div class="hamburger">
+    <div></div>
+  </div>
+  <div class="menu">
+    <div>
+      <div>
+        <ul>
+          <li><a href="./index.php">Top</a></li>
+          <li><a href="./admin.php">Admin</a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1>ひと言掲示板 管理ページ</h1>
 <?php if(!empty($error_message)): ?>
     <ul class="error_message">
         <?php foreach($error_message as $value): ?>
@@ -82,6 +103,11 @@ $pdo = null;
 <section>
 
 <?php if(!empty($_SESSION['admin_login']) && $_SESSION['admin_login'] === true): ?>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <form method="GET" action="./download.php">
     <select name="limit">
@@ -114,6 +140,12 @@ $pdo = null;
 
 <?php else: ?>
 <!-- ログインフォーム -->
+<br>
+<br>
+<br>
+<br>
+<br>
+
 <form method="POST">
     <div>
         <label for="admin_password">ログインパスワード</label>

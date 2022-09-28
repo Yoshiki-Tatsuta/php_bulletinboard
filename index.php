@@ -115,10 +115,31 @@ $pdo = null;
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet/less" type="text/css" href="./style/style.less" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
     <title>ひと言掲示板</title>
 </head>
 <body>
-<h1><a href="./index.php">ひと言掲示板</a></h1>
+<div class="outer-menu">
+  <input class="checkbox-toggle" type="checkbox" />
+  <div class="hamburger">
+    <div></div>
+  </div>
+  <div class="menu">
+    <div>
+      <div>
+        <ul>
+          <li><a href="./index.php">Top</a></li>
+          <li><a href="./admin.php">Admin</a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1>ひと言掲示板</h1>
 <?php if(empty($_POST['btn_submit']) && !empty($_SESSION['success_message'])): ?>
     <p class="success_message"><?php echo htmlspecialchars($_SESSION['success_message'], ENT_QUOTES, 'UTF-8') ; ?></p>
     <?php unset($_SESSION['success_message']); ?>
@@ -130,7 +151,11 @@ $pdo = null;
         <?php endforeach; ?>
     </ul>
 <?php endif; ?>
-<h2><a href="./admin.php">管理者ページへはこちらをクリック</a></h2>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <!-- ここにメッセージの入力フォームを設置 -->
 <form method="POST">
